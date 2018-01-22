@@ -21,7 +21,7 @@ x=linalg.solve(A,b)
 print('linalg.solve solution',x,'\n')
 x0=x+0.1*eps
 print('initial guess',x0,'\n')
-x1=LGMRES.solve(A,b,x0=x0)
+x1=LGMRES.solve(A,b,x0=x0, inner_m=n)
 print('LGMRES.solve solution',x1,'\n')
 print('norm of the difference',linalg.norm(x1-x))
 
