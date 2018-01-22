@@ -1,10 +1,11 @@
+from __future__ import print_function
 from numpy import *
 import LGMRES
 
 import sys
 
 if len(sys.argv)<2:
-    print 'Usage: python test.py SIZE'
+    print('Usage: python test.py SIZE')
     quit()
 
 n=int(sys.argv[1])
@@ -17,10 +18,10 @@ b=random.randn(n)
 eps=random.randn(n)
 
 x=linalg.solve(A,b)
-print x
+print('linalg.solve solution',x,'\n')
 x0=x+0.1*eps
-print x0
+print('initial guess',x0,'\n')
 x1=LGMRES.solve(A,b,x0=x0)
-print x1
-print linalg.norm(x1-x)
+print('LGMRES.solve solution',x1,'\n')
+print('norm of the difference',linalg.norm(x1-x))
 
